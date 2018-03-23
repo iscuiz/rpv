@@ -29,4 +29,8 @@ class Rpv extends Model
     {
         return $this->belongsTo(Bank::class);
     }
+    public function process()
+    {
+        return $this->belongsTo(Process::class,'process_type');
+    }
 }

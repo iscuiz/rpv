@@ -12,12 +12,12 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>CPF</th>
-                                <th>Processo RPV</th>
-                                <th>Processo Originatório</th>
+                                <th>Proc RPV</th>
+                                <th>Proc Origin</th>
                                 <th>Vara</th>
                                 <th>Contato</th>
-                                <th>Tipo de Processo</th>
-                                <th>Data de Depósito</th>
+                                <th>Tipo de Proc</th>
+                                <th>Data de Dep</th>
                                 <th>Movimentação</th>
                                 <th>Banco</th>
                                 
@@ -27,70 +27,36 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>CPF</th>
-                                <th>Processo RPV</th>
-                                <th>Processo Originatório</th>
+                                <th>Proc RPV</th>
+                                <th>Proc Origin</th>
                                 <th>Vara</th>
                                 <th>Contato</th>
-                                <th>Tipo de Processo</th>
-                                <th>Data de Depósito</th>
+                                <th>Tipo de Proc</th>
+                                <th>Data de Dep</th>
                                 <th>Movimentação</th>
                                 <th>Banco</th>
                             </tr>
                         </tfoot>
                         <tbody>
+                        @forelse($rpvs as $rpv)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>{{$rpv->name}}</td>
+                                <td>{{$rpv->cpf}}</td>
+                                <td>{{$rpv->rpv_process}}</td>
+                                <td>{{$rpv->origin_process}}</td>
+                                <td>{{$rpv->stick}}</td>
+                                <td>{{$rpv->contact}}</td>
+                                <td>{{$rpv->process->type}}</td>
+                                <td>{{$rpv->deposit_date}}</td>
+                                <td>{{$rpv->moviment->name}}</td>
+                                <td>{{$rpv->bank->name}}</td>
+                              
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
+                            @empty
+                            Sem Registros
+                           @endforelse
                            
-                           
-                            
-                        
-                        </tbody>
+                           </tbody>
                     </table>
                 </div>
             </div>

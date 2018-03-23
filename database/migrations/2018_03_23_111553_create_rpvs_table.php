@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +20,7 @@ class CreateRpvsTable extends Migration
             $table->string('rpv_process');
             $table->string("origin_process");
             $table->string("stick");
-            $table->string('process_type');
+            $table->integer('process_type')->unsigned();
             $table->string("contact");
             $table->string("deposit_date");
             $table->integer('moviment_id')->unsigned();

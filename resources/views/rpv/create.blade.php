@@ -84,9 +84,13 @@
                                                 <div class="form-group has-success">
                                                     <label class="control-label">Tipo de processo</label>
                                                     <select name="process_type" class="form-control custom-select">
-                                                        <option value="1">1/3 Férias</option>
-                                                        <option value="2">Débito Tributário</option>
-                                                        <option value="3">Ação progressão</option>
+                                                    @forelse($processes as $process)
+                                                        <option value="{{$process->id}}">{{$process->type}}</option>
+                                                        
+
+                                                        @empty
+
+                                                        @endforelse
                                                     </select>
                                                     <small class="form-control-feedback"> Selecione o tipo de processo </small> </div>
                                             </div>
@@ -105,10 +109,12 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Movimentação</label>
                                                     <select  name="moviment_id" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <
-                                                        <option value="1">Débito em conta</option>
-                                                        <option value="2">Transferência</option>
-                                                        <option value="3">Boleto bancário</option>
+                                                    
+                                                     @forelse($moviments as $moviment)
+                                                        <option value="{{$moviment->id}}">{{$moviment->name}}</option>
+                                                        @empty
+
+                                                        @endforelse
                                                     </select>
                                                 </div>
                                             </div>
@@ -117,9 +123,11 @@
                                                <div class="form-group">
                                                     <label class="control-label">Banco</label>
                                                     <select name="bank_id" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option value="1">Escolha</option>
-                                                        <option value="2">Banco do Brasil</option>
-                                                        <option value="3">Caixa econômica</option>
+                                                       @forelse($banks as $bank)
+                                                        <option value="{{$bank->id}}">{{$bank->name}}</option>
+                                                        @empty
+
+                                                        @endforelse
                                                     </select>
                                                 </div>
                                                 </div>

@@ -113,12 +113,16 @@
                         
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Cadastros</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="form-basic.html">Cadastrar RPV</a></li>
+                            
+                                <li><a href="{{url('rpv/create')}}">Cadastrar RPV</a></li>
+                                <li><a href="{{url('bank/create')}}">Cadastrar Banco</a></li>
+                                <li><a href="{{url('moviment/create')}}">Cadastrar Movimentação</a></li>
+                                <li><a href="{{url('process/create')}}">Cadastrar Tipos de Processos</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Listagem</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="table-datatable.html">Todos os cadastros</a></li>
+                                <li><a href="{{url('/rpv/list')}}">Todos os cadastros</a></li>
                             </ul>
                         </li>
                         

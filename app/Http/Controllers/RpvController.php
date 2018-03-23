@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 use App\Rpv;
 use App\Doc;
+use App\Bank;
+use App\Process;
+use App\Moviment;
 use Illuminate\Http\Request;
 use App\Http\Requests\RpvRequest;
 class RpvController extends Controller
 {
     //
-    public function create(Rpv $rpv)
+    public function create(Rpv $rpv,Bank $bank,Moviment $moviment)
     {
-        $newRpv = $rpv->find(5);
-        $docs = $newRpv->docs;
-        //dd($newRpv->docs);
-        return view('rpv/create');
+        $banks     = $bank->all();
+        $moviments = $moviment->all();
+        $processes = Process::all();
+        return view('rpv/create',compact('banks','moviments','processes'));
     }
 
 
@@ -49,8 +52,8 @@ class RpvController extends Controller
             }
         }
     }
-    public function list()
-    {
-        return view('rpv/create');
+    public function list(Rpv $rpv)
+    {   $rpvs = $rpv->all();
+        return view('rpv/list',compact("rpvs"));
     }
 }
