@@ -8,11 +8,16 @@ class Rpv extends Model
 {
     //
     protected $fillable = [
-        'name','cpf','rpv_process','origin_process','stick','contact','process_type','deposit_date'
+        'name','cpf','rpv_process',
+        'origin_process','stick',
+        'contact','process_type',
+        'deposit_date',
+        'moviment_id',
+        'bank_id'
     ];
     public function docs()
     {
-        return $this->belongsTo(Doc::class);
+        return $this->belongsToMany(Doc::class,'rpv_doc','rpv_id','doc_id');
     }
 
     public function moviment()

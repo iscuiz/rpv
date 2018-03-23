@@ -33,8 +33,8 @@ class RpvRequest extends FormRequest
             'contact'        => 'required',
             'process_type'   => 'required',
             'deposit_date'   => 'required',
-            'moviment'       => 'required',
-            'bank'           => 'required',
+            'moviment_id'       => 'required',
+            'bank_id'           => 'required',
             'docs'           => 'required'
         ];
     }
@@ -53,8 +53,8 @@ class RpvRequest extends FormRequest
             'contact.required'        => "O campo contato é obrigatório",
             'process_type.required'   => "O campo tipo do processo é obrigatório",
             'deposit_date.required'   => "A data do deposito é obrigatória",
-            'moviment.required'       => "O campo movimentação é obrigatório",
-            'bank.required'           => "O campo banco é obrigatório",
+            'moviment_id.required'       => "O campo movimentação é obrigatório",
+            'bank_id.required'           => "O campo banco é obrigatório",
             'docs.required'           => "Os documentos são obrigatórios"
         ];
     }
