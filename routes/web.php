@@ -14,3 +14,6 @@
 Route::get('/', 'RpvController@create');
 
 Route::post('rpv/create', 'RpvController@store');
+Route::get('rpv/list',function(){
+    return view('rpv/list');
+});

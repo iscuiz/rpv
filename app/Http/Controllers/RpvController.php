@@ -16,6 +16,7 @@ class RpvController extends Controller
         return view('rpv/create');
     }
 
+
     public function store(RpvRequest $request,Doc $docs)
     {
         
@@ -50,6 +51,6 @@ class RpvController extends Controller
     }
     public function list()
     {
-        return view('rpv/list');
+        return view('rpv/create');
     }
 }

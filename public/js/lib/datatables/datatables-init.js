@@ -1,7 +1,14 @@
 $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+            }
+        });
         $(document).ready(function() {
             var table = $('#example').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+                },
                 "columnDefs": [{
                     "visible": false,
                     "targets": 2
@@ -38,8 +45,38 @@ $(document).ready(function() {
         });
     });
     $('#example23').DataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
+        },
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            {
+                extend: 'copy',
+                text: 'Copiar',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Exportar para Excel',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            ,
+            {
+                extend: 'pdf',
+                text: 'Exportar para PDF',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            }
         ]
     });
