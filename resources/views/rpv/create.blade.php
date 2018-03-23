@@ -104,11 +104,11 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Movimentação</label>
-                                                    <select  name="movimentation" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option value="Category 1">Escolha</option>
-                                                        <option value="Category 2">Débito em conta</option>
-                                                        <option value="Category 3">Transferência</option>
-                                                        <option value="Category 4">Boleto bancário</option>
+                                                    <select  name="moviment" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                        <option value="1">Escolha</option>
+                                                        <option value="2">Débito em conta</option>
+                                                        <option value="3">Transferência</option>
+                                                        <option value="4">Boleto bancário</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -117,9 +117,9 @@
                                                <div class="form-group">
                                                     <label class="control-label">Banco</label>
                                                     <select name="bank" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                        <option value="Category 1">Escolha</option>
-                                                        <option value="Category 2">Banco do Brasil</option>
-                                                        <option value="Category 3">Caixa econômica</option>
+                                                        <option value="1">Escolha</option>
+                                                        <option value="2">Banco do Brasil</option>
+                                                        <option value="3">Caixa econômica</option>
                                                     </select>
                                                 </div>
                                                 </div>

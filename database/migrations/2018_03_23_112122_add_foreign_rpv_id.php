@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRpvsTable extends Migration
+class AddForeignRpvId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateRpvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rpvs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('rpvs', function (Blueprint $table) {
+            $table->integer('rpv_id')->unsigned();
+            $table->foreign('rpv_id')
+            ->references('id')
+            ->on('rpvs')->onDelete('cascade');
         });
     }
 
@@ -26,6 +28,8 @@ class CreateRpvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rpvs');
+        Schema::table('rpvs', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Rpv;
 use Illuminate\Http\Request;
 use App\Http\Requests\RpvRequest;
 class RpvController extends Controller
@@ -14,12 +14,24 @@ class RpvController extends Controller
 
     public function store(RpvRequest $request)
     {
+        
+
+        $newRpv = Rpv::create($request->all());
+        dd($newRpv);
         if($request->hasFile('docs'))
         {
-            foreach($request->file('docs') as $file)
+            if(is_array($request->file('docs')) || is_object($request->file('docs')))
             {
-                $file->storeAs('docs',$file->getClientOriginalName().'.'.$file->getClientOriginalExtension());
+                foreach($request->file('docs') as $file)
+                {
+                $file->storeAs('docs',$file->getClientOriginalName());
                 echo $file->getClientOriginalName()."<br>";
+                }
+            }
+            else
+            {
+            $file = $request->file('docs');
+            $file->storeAs('docs',$file->getClientOriginalName());
             }
         }
     }
