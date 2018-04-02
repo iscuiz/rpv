@@ -8,6 +8,7 @@ use App\Process;
 use App\Moviment;
 use Illuminate\Http\Request;
 use App\Http\Requests\RpvRequest;
+use App\Jobs\SendRpvJob;
 class RpvController extends Controller
 {
     //
@@ -25,7 +26,7 @@ class RpvController extends Controller
         
         //dd($request->all());
         $newRpv = Rpv::create($request->all());
-        
+        $requestfileName = "";
         if($request->hasFile('docs'))
         {
             if(is_array($request->file('docs')) || is_object($request->file('docs')))
@@ -33,7 +34,7 @@ class RpvController extends Controller
                 foreach($request->file('docs') as $file)
                 {
                 $file->storeAs('docs',$file->getClientOriginalName());
-                
+                $requestfileName = $file->getClientOriginalName();
                 $doc = $docs->create([
                     'file'=> $file->getClientOriginalName()
                 ]);
@@ -51,7 +52,12 @@ class RpvController extends Controller
             $newRpv->docs()->attach($doc);
             }
         }
+
+        $this->dispatch(new SendRpvJob($requestfileName));
+
     }
+
+
     public function list(Rpv $rpv)
     {   $rpvs = $rpv->all();
         return view('rpv/list',compact("rpvs"));
