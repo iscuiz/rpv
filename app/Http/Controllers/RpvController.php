@@ -26,7 +26,7 @@ class RpvController extends Controller
         
         //dd($request->all());
         $newRpv = Rpv::create($request->all());
-        $requestfileName = "";
+        $requestfileName = [];
         if($request->hasFile('docs'))
         {
             if(is_array($request->file('docs')) || is_object($request->file('docs')))
@@ -34,7 +34,7 @@ class RpvController extends Controller
                 foreach($request->file('docs') as $file)
                 {
                 $file->storeAs('docs',$file->getClientOriginalName());
-                $requestfileName = $file->getClientOriginalName();
+                $requestfileName[] = $file->getClientOriginalName();
                 $doc = $docs->create([
                     'file'=> $file->getClientOriginalName()
                 ]);
@@ -53,13 +53,16 @@ class RpvController extends Controller
             }
         }
 
+       // dd(storage_path()."\app\\docs\\");        
         $this->dispatch(new SendRpvJob($requestfileName));
+        return redirect()->back()->with('sucess','Email Enviado');
 
     }
 
 
     public function list(Rpv $rpv)
-    {   $rpvs = $rpv->all();
+    {  
+         $rpvs = $rpv->all();
         return view('rpv/list',compact("rpvs"));
     }
 }

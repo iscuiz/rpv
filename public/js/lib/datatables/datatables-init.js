@@ -52,6 +52,8 @@ $(document).ready(function() {
         buttons: [
             {
                 extend: 'copy',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
                 text: 'Copiar',
                 exportOptions: {
                     modifier: {
@@ -62,21 +64,20 @@ $(document).ready(function() {
             {
                 extend: 'excel',
                 text: 'Exportar para Excel',
-                exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    }
-                }
+               
             },
             ,
             {
                 extend: 'pdf',
                 text: 'Exportar para PDF',
-                exportOptions: {
-                    modifier: {
-                        page: 'current'
-                    }
+               
+                pageSize: 'LEGAL',
+                //para exportar a pagina atual
+               /*exportOptions: {
+                modifier: {
+                    page: 'current'
                 }
+            }*/
             }
         ]
     });

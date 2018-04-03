@@ -47,7 +47,7 @@
                                 <td>{{$rpv->stick}}</td>
                                 <td>{{$rpv->contact}}</td>
                                 <td>{{$rpv->process->type}}</td>
-                                <td>{{$rpv->deposit_date}}</td>
+                                <td>{{date('d-m-Y',strtotime($rpv->deposit_date))}}</td>
                                 <td>{{$rpv->moviment->name}}</td>
                                 <td>{{$rpv->bank->name}}</td>
                               

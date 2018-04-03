@@ -30,7 +30,25 @@ class SendRpvMail extends Mailable
      */
     public function build()
     {
+        
+        if(is_array($this->doc) || is_object($this->doc))
+        {
+            $email =  $this->view('email.send-rpv');
+            foreach($this->doc as  $file)
+            {
+
+                $email->attach(storage_path()."\\app\\docs\\$file",[
+                    'as' => $file,
+                    'mime'=>'application/pdf'
+                    ]);;
+            }
+            return $email;
+        }
+
         return $this->view('email.send-rpv')
-        ->attachData(storage_path()."/$this->doc",$this->doc);
+        ->attach(storage_path()."\\app\\docs\\$this->doc",[
+            'as' => $this->doc,
+            'mime'=>'application/pdf'
+            ]);
     }
 }

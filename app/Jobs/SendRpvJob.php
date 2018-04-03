@@ -35,7 +35,7 @@ class SendRpvJob implements ShouldQueue
     public function handle()
     {
         $file = $this->docs;
-        
+        //dd($file);
         $email = new SendRpvMail($file);
         //print_r($email);
         Mail::to("matheus.souzadv@gmail.com")->send($email);
