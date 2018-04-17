@@ -17,4 +17,22 @@ class BankController extends Controller
         $bank = Bank::create($request->all());
         return redirect()->back()->with('sucess','Banco Cadastrado com Sucesso');
     }
+    public function list()
+    {
+        $banks = Bank::all();
+        return view('bank/list',compact('banks'));
+    }
+    public function edit()
+    {
+
+    }
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+
+    }
 }

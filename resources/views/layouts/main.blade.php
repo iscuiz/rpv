@@ -52,17 +52,7 @@
                         <!-- This is  -->
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted  " href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                         <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted  " href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        
-
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastros</i></a>
-                            <div class="dropdown-menu animated zoomIn">
-                                <a class="dropdown-item" href="#">Canada</a>
-                                <a class="dropdown-item" href="#">French</a>
-                                <a class="dropdown-item" href="#">China</a>
-                                <a class="dropdown-item" href="#">Dutch</a>
-                            </div>
-                        </li>
+          
                         <!-- Messages -->
                         
                         <!-- End Messages -->
@@ -122,7 +112,10 @@
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Listagem</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('/rpv/list')}}">Todos os cadastros</a></li>
+                                <li><a href="{{url('/rpv/list')}}">Rpvs</a></li>
+                                <li><a href="{{url('/bank/list')}}">Bancos</a></li>
+                                <li><a href="{{url('/moviment/list')}}">Movimentações</a></li>
+                                <li><a href="{{url('/process/list')}}">Processos</a></li>
                             </ul>
                         </li>
                         

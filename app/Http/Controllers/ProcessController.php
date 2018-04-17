@@ -17,8 +17,30 @@ class ProcessController extends Controller
         $process = Process::create($request->all());
         return redirect()->back()->with('sucess','Tipo de Processo cadastrado com sucesso');
     }
+
     public function list()
     {
-        return view('process/list');
+        $process = Process::all();
+        return view('process/list',compact('process'));
+    }
+
+    public function edit(Request $request)
+    {
+        $process = Process::findOrFail($request->id);
+        if($process)
+        {
+            return view('process/edit',compact('process'));
+        }
+        return redirect()->back();
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        
     }
 }

@@ -2,13 +2,28 @@ $(document).ready(function() {
         $('#myTable').DataTable({
             "language": {
                 "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-            }
+            },
+            
+            "columns": [
+                { "visible": false },
+                null,
+                null,
+                null,
+                null
+              ],
         });
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
                 },
+                "columns": [
+                    { "visible": false },
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
                 "columnDefs": [{
                     "visible": false,
                     "targets": 2
@@ -49,6 +64,7 @@ $(document).ready(function() {
             "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
         },
         dom: 'Bfrtip',
+        
         buttons: [
             {
                 extend: 'copy',
@@ -70,14 +86,18 @@ $(document).ready(function() {
             {
                 extend: 'pdf',
                 text: 'Exportar para PDF',
-               
+              /*  action: function()
+                {
+                    this.column(10).visible(false);  
+                },*/
                 pageSize: 'LEGAL',
                 //para exportar a pagina atual
-               /*exportOptions: {
-                modifier: {
-                    page: 'current'
-                }
-            }*/
+               exportOptions: {
+                columns: [0,1,2,3,4,5,6,7,8,9]
             }
-        ]
+            }
+        ],
+        
     });
+
+ 

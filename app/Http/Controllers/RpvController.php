@@ -65,4 +65,18 @@ class RpvController extends Controller
          $rpvs = $rpv->all();
         return view('rpv/list',compact("rpvs"));
     }
+
+    public function edit()
+    {
+
+    }
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        
+    }
 }

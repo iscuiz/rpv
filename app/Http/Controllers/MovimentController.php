@@ -18,4 +18,26 @@ class MovimentController extends Controller
 
         return redirect()->back()->with('sucess','Movimentação Cadastrada com Sucesso');
     }
+    public function list()
+    {
+        $moviments = Moviment::all();
+        return view('moviment/list',compact('moviments'));
+    }
+    public function edit(Request $request)
+    {
+        $moviment = Moviment::findOrFail($request->id);
+        if($moviment)
+        {
+            return view('moviment/edit',compact('moviment'));
+        }
+    }
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+        
+    }
 }

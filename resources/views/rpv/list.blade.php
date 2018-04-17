@@ -20,7 +20,7 @@
                                 <th>Data de Dep</th>
                                 <th>Movimentação</th>
                                 <th>Banco</th>
-                                
+                                <th width="10%">Açoes</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -35,6 +35,7 @@
                                 <th>Data de Dep</th>
                                 <th>Movimentação</th>
                                 <th>Banco</th>
+                                <th width="10%">Açoes</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -50,7 +51,11 @@
                                 <td>{{date('d-m-Y',strtotime($rpv->deposit_date))}}</td>
                                 <td>{{$rpv->moviment->name}}</td>
                                 <td>{{$rpv->bank->name}}</td>
-                              
+                                <td width="15%" style="text-align: center">
+                                        <a href='{{url("process/$rpv->id/edit")}}' class="btn btn-warning">Editar</a>
+                                        <a href='{{url("process/$rpv->id/delete")}}' class="btn btn-danger">Excluir</a>
+                                    </td>
+                                  
                             </tr>
                             @empty
                             Sem Registros
