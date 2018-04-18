@@ -17,7 +17,7 @@ class AddForeignProcessType extends Migration
             //
             $table->foreign('process_type')
             ->references('id')
-            ->on('processes')->onDelete('cascade');
+            ->on('processes');
         });
     }
 

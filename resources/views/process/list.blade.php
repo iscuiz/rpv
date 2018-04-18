@@ -2,6 +2,8 @@
 @section('content')
 <!-- Start Page Content -->
 <div class="row">
+        {!! Form::open(['url'=>'#','id'=>'delete-form']) !!}
+        {!! Form::close() !!}
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -12,7 +14,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Ações</th>
-                                
+
                             </tr>
                         </thead>
                         <tfoot>
@@ -27,20 +29,37 @@
                                 <td>{{$proc->type}}</td>
                             <td width="30%" style="text-align: center">
                                 <a href='{{url("process/$proc->id/edit")}}' class="btn btn-warning">Editar</a>
-                                <a href='{{url("process/$proc->id/delete")}}' class="btn btn-danger">Excluir</a>
+                                <a href='#' class="btn btn-danger" onclick = "confirmDelete({{$proc->id}})">Excluir</a>
                             </td>
-                          
+
                             </tr>
                             @empty
                             Sem Registros
                            @endforelse
-                           
+
                            </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        
+
+         <!--MODAL CONFIRM DELETE -->
+         <div class="modal" id="confirm">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirmação de exclusão</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Tem certeza que deseja excluir?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn  btn-primary" id="delete-btn">Confirmar</button>
+                            <button type="button" class="btn  btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <!-- End PAge Content -->
 @endsection
 
@@ -64,6 +83,15 @@
     </script>
 
 <script>
+  function confirmDelete(id)
+   {
 
+        $("#delete-form").attr('action','http://localhost:8000/process/'+id+'/delete');
+        var $form = $("#delete-form");
+        $('#confirm').modal({ backdrop: 'static', keyboard: false })
+        .on('click', '#delete-btn', function(){
+            $("#delete-form").submit()
+        });
+   }
 </script>
 @endsection

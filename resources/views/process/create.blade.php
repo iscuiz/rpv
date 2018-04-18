@@ -1,7 +1,7 @@
 @extends("layouts/main")
     @section("content")
 <div class="row">
-
+        @include('layouts.alert')
     <div class="col-12">
                         <div class="card">
                             <div class="container-fluid">
@@ -23,7 +23,7 @@
     </div>
 @endif
                                 <form action="{{url('process/create')}}" method='post'>
-                                
+
                                 {{csrf_field()}}
                                     <div class="form-body">
                                         <h3 class="card-title m-t-15">Adicionar informações</h3>
@@ -35,10 +35,10 @@
                                                     <input type="text" name="type" id="firstName" class="form-control">
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
-                                        
+
                                             <!--/span-->
                                         </div>
-                                        
+
 
                                         <div class="form-actions">
                                         <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Salvar</button>

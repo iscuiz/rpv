@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Bank;
+use App\Moviment;
+use App\Process as  TypeProccess;
+use Symfony\Component\Process\Process;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $bank = Bank::create([
+            'name'=>"BB"
+        ]);
+        $process = TypeProccess::create([
+            'type'=>'tipo1'
+        ]);
+        $moviment = Moviment::create([
+            'name'=>'testes2'
+        ]);
         // $this->call(UsersTableSeeder::class);
     }
 }

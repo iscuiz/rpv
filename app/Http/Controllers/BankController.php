@@ -15,7 +15,7 @@ class BankController extends Controller
     public function store(Request $request)
     {
         $bank = Bank::create($request->all());
-        return redirect()->back()->with('sucess','Banco Cadastrado com Sucesso');
+        return redirect()->back()->with('info','Banco Cadastrado com Sucesso');
     }
     public function list()
     {
@@ -31,8 +31,14 @@ class BankController extends Controller
 
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-
+        $bank = Bank::findOrFail($request->id);
+        if($bank)
+        {
+            $bank->delete();
+            return redirect()->back()->with('info','Banco excluido com sucesso');
+        }
+        return redirect()->back()->with('info','Banco não encontrado');
     }
 }

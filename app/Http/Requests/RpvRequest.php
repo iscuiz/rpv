@@ -24,7 +24,7 @@ class RpvRequest extends FormRequest
     public function rules()
     {
         return [
-            
+
             'name'           => 'required',
             'cpf'            => 'min:11|required|numeric',
             'rpv_process'    => 'required',
@@ -33,8 +33,8 @@ class RpvRequest extends FormRequest
             'contact'        => 'required',
             'process_type'   => 'required',
             'deposit_date'   => 'required',
-            'moviment_id'       => 'required',
-            'bank_id'           => 'required',
+            'moviment'       => 'required',
+            'bank'           => 'required',
             'docs'           => 'required'
         ];
     }
@@ -43,7 +43,7 @@ class RpvRequest extends FormRequest
     {
         return [
 
-            'name.required'           => "O campo nome é obrigatório", 
+            'name.required'           => "O campo nome é obrigatório",
             'cpf.min'                 => "Digite um cpf válido",
             'cpf.required'            => "O campo cpf é Obrigatório",
             'cpf.numeric'             => "Digite um cpf válido",
@@ -53,8 +53,8 @@ class RpvRequest extends FormRequest
             'contact.required'        => "O campo contato é obrigatório",
             'process_type.required'   => "O campo tipo do processo é obrigatório",
             'deposit_date.required'   => "A data do deposito é obrigatória",
-            'moviment_id.required'       => "O campo movimentação é obrigatório",
-            'bank_id.required'           => "O campo banco é obrigatório",
+            'moviment.required'       => "O campo movimentação é obrigatório",
+            'bank.required'           => "O campo banco é obrigatório",
             'docs.required'           => "Os documentos são obrigatórios"
         ];
     }

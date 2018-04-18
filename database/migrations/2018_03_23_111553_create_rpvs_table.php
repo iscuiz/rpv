@@ -23,14 +23,8 @@ class CreateRpvsTable extends Migration
             $table->integer('process_type')->unsigned();
             $table->string("contact");
             $table->string("deposit_date");
-            $table->integer('moviment_id')->unsigned();
-            $table->foreign('moviment_id')
-            ->references('id')
-            ->on('moviments');
-            $table->integer('bank_id')->unsigned();
-            $table->foreign('bank_id')
-            ->references('id')
-            ->on('banks');
+            $table->string('moviment');
+            $table->string('bank');
             $table->timestamps();
         });
     }

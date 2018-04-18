@@ -1,7 +1,7 @@
 @extends("layouts/main")
     @section("content")
 <div class="row">
-
+        @include('layouts.alert')
     <div class="col-12">
                         <div class="card">
                             <div class="container-fluid">
@@ -23,7 +23,7 @@
     </div>
 @endif
                                 <form action="{{url('rpv/create')}}" method='post' enctype='multipart/form-data'>
-                                
+
                                 {{csrf_field()}}
                                     <div class="form-body">
                                         <h3 class="card-title m-t-15">Adicionar informações</h3>
@@ -86,7 +86,7 @@
                                                     <select name="process_type" class="form-control custom-select">
                                                     @forelse($processes as $process)
                                                         <option value="{{$process->id}}">{{$process->type}}</option>
-                                                        
+
 
                                                         @empty
 
@@ -108,10 +108,10 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Movimentação</label>
-                                                    <select  name="moviment_id" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                                    
+                                                    <select  name="moviment" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+
                                                      @forelse($moviments as $moviment)
-                                                        <option value="{{$moviment->id}}">{{$moviment->name}}</option>
+                                                        <option value="{{$moviment->name}}">{{$moviment->name}}</option>
                                                         @empty
 
                                                         @endforelse
@@ -122,9 +122,9 @@
                                             <div class="col-md-6">
                                                <div class="form-group">
                                                     <label class="control-label">Banco</label>
-                                                    <select name="bank_id" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                    <select name="bank" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
                                                        @forelse($banks as $bank)
-                                                        <option value="{{$bank->id}}">{{$bank->name}}</option>
+                                                        <option value="{{$bank->name}}">{{$bank->name}}</option>
                                                         @empty
 
                                                         @endforelse
@@ -139,11 +139,11 @@
                                                  <div class="card-body">
                                                    <h4 class="card-title">Documentação</h4>
                                                      <h6 class="card-subtitle">Busca de documentação </h6>
-                                                      
+
                                                          <div class="fallback">
                                                          <input name="docs[]"  type="file" multiple />
                                                          </div>
-                                                        
+
                                                        </div>
                                                      </div>
                                                    </div>

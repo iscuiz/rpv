@@ -18,11 +18,13 @@ class RpvsDocsTable extends Migration
             $table->integer('rpv_id')->unsigned();
             $table->foreign('rpv_id')
             ->references('id')
-            ->on('rpvs');
-            $table->integer('doc_id')->unsigned();
+            ->on('rpvs')
+            ->onDelete('cascade');
+            $table->integer('doc_id')->unsigned()->nullable();
             $table->foreign('doc_id')
             ->references('id')
-            ->on('docs');
+            ->on('docs')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

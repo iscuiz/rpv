@@ -13,10 +13,10 @@ class MovimentController extends Controller
 
     public function store(Request $request)
     {
-        
+
         $moviment = Moviment::create($request->all());
 
-        return redirect()->back()->with('sucess','Movimentação Cadastrada com Sucesso');
+        return redirect()->back()->with('info','Movimentação Cadastrada com Sucesso');
     }
     public function list()
     {
@@ -36,8 +36,15 @@ class MovimentController extends Controller
 
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        
+        $moviment = Moviment::findOrFail($request->id);
+        if($moviment)
+          {
+            $moviment->delete();
+            return redirect()->back()->with('info','Movimentação  excluida com sucesso');
+        }
+        return redirect()->back()->with('info','Rpv não encontrado');
     }
+
 }

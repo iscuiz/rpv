@@ -23,7 +23,7 @@ class RpvController extends Controller
 
     public function store(RpvRequest $request,Doc $docs)
     {
-        
+
         //dd($request->all());
         $newRpv = Rpv::create($request->all());
         $requestfileName = [];
@@ -53,15 +53,15 @@ class RpvController extends Controller
             }
         }
 
-       // dd(storage_path()."\app\\docs\\");        
-        $this->dispatch(new SendRpvJob($requestfileName));
-        return redirect()->back()->with('sucess','Email Enviado');
+       // dd(storage_path()."\app\\docs\\");
+        //$this->dispatch(new SendRpvJob($requestfileName));
+        return redirect()->back()->with('info','Rpv cadastrado com sucesso');
 
     }
 
 
     public function list(Rpv $rpv)
-    {  
+    {
          $rpvs = $rpv->all();
         return view('rpv/list',compact("rpvs"));
     }
@@ -75,8 +75,14 @@ class RpvController extends Controller
 
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-        
+        $rpv = Rpv::findOrFail($request->id);
+        if($rpv)
+        {
+            $rpv->delete();
+            return redirect()->back()->with('info','Rpv excluido com sucesso');
+        }
+        return redirect()->back()->with('info','Rpv não encontrado');
     }
 }

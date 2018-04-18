@@ -12,8 +12,8 @@ class Rpv extends Model
         'origin_process','stick',
         'contact','process_type',
         'deposit_date',
-        'moviment_id',
-        'bank_id'
+        'moviment',
+        'bank'
     ];
     public function docs()
     {
