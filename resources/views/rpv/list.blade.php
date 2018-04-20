@@ -56,7 +56,7 @@
                                 <td>{{$rpv->moviment}}</td>
                                 <td>{{$rpv->bank}}</td>
                                 <td width="15%" style="text-align: center">
-                                        <a href='{{url("process/$rpv->id/edit")}}' class="btn btn-warning">Editar</a>
+                                        <a href='{{url("rpv/$rpv->id/edit")}}' class="btn btn-warning">Editar</a>
                                         <a href='#' class="btn btn-danger" onclick="confirmDelete({{$rpv->id}})">Excluir</a>
                                     </td>
 

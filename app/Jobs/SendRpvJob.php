@@ -19,10 +19,15 @@ class SendRpvJob implements ShouldQueue
      * @return void
      */
     protected $docs = "2.png";
-
-    public function __construct($file)
+    protected $to = "";
+    protected $subject = "";
+    protected $msg = "";
+    public function __construct($file,$to,$subject,$msg)
     {
         $this->docs = $file;
+        $this->to = $to;
+        $this->subject = $subject;
+        $this->msg = $msg;
         //file_put_contents(storage_path()."/x.txt",$file);
 
     }
@@ -35,10 +40,12 @@ class SendRpvJob implements ShouldQueue
     public function handle()
     {
         $file = $this->docs;
-        //dd($file);
-        $email = new SendRpvMail($file);
+        $msg = $this->msg;
+        $subject = $this->subject;
+
+        $email = new SendRpvMail($file,$msg,$subject);
         //print_r($email);
-        Mail::to("matheus.souzadv@gmail.com")->send($email);
+        Mail::to($this->to)->send($email);
     }
 
     public function failed()

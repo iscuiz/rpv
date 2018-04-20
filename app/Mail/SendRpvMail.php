@@ -17,10 +17,14 @@ class SendRpvMail extends Mailable
      * @return void
      */
     protected $doc;
-    public function __construct($doc)
+    protected $msg;
+    protected $subj;
+    public function __construct($doc,$msg,$subject)
     {
         //
         $this->doc = $doc;
+        $this->msg = $msg;
+        $this->subj = $subject;
     }
 
     /**
@@ -30,10 +34,12 @@ class SendRpvMail extends Mailable
      */
     public function build()
     {
-        
+
         if(is_array($this->doc) || is_object($this->doc))
         {
-            $email =  $this->view('email.send-rpv');
+
+            $email =  $this->subject($this->subj)
+            ->view('email.send-rpv')->with(['msg'=>$this->msg]);
             foreach($this->doc as  $file)
             {
 

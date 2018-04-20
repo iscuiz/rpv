@@ -207,7 +207,8 @@ h6 {
   display: none;
 }
 .page-wrapper {
-  background: #fafafa;
+  background: #fafafa
+  ;
   padding-bottom: 60px;
 }
 .container-fluid {
@@ -283,10 +284,10 @@ h6 {
   color: #02bec9;
 }
 .text-purple {
-  color: #7460ee;
+  color: #0c023c;
 }
 .text-primary {
-  color: #5c4ac7;
+  color: #0c023c;
 }
 .text-megna {
   color: #00897b;
@@ -322,7 +323,7 @@ h6 {
   background-color: #2f3d4a;
 }
 .bg-purple {
-  background-color: #7460ee;
+  background-color: #0c023c;
 }
 .bg-light-part {
   background-color: rgba(0, 0, 0, 0.02);
@@ -665,7 +666,7 @@ a,
 button {
   outline: none!important;
   text-decoration: none!important;
-  color: #99abb4;
+  color: #0c023c;
   transition: all 0.2s ease 0s;
 }
 a.active,
@@ -2248,7 +2249,7 @@ textarea {
   border-color: #5c4ac7;
 }
 .card-outline-primary .card-header {
-  background: #5c4ac7 none repeat scroll 0 0;
+  background: #0c023c none repeat scroll 0 0;
   border-color: #5c4ac7;
 }
 .card-body {
@@ -3184,8 +3185,8 @@ table.dataTable thead .sorting::after {
   box-shadow: 0 14px 26px -12px rgba(248, 194, 0, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(248, 194, 0, 0.2);
 }
 .btn-danger {
-  background: #ef5350;
-  border: 1px solid #ef5350;
+  background: #0c023c;
+  border: 1px solid #0c023c;
   -webkit-box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
   box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);
   -webkit-transition: 0.2s ease-in;
@@ -3193,7 +3194,7 @@ table.dataTable thead .sorting::after {
   transition: 0.2s ease-in;
 }
 .btn-danger:hover {
-  background: #ef5350;
+  background: #0c023c;
   -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
   box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
   border: 1px solid #ef5350;
@@ -3262,8 +3263,8 @@ table.dataTable thead .sorting::after {
   box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
 }
 .btn-inverse {
-  background: #2f3d4a;
-  border: 1px solid #2f3d4a;
+  background: #0c023c;
+  border: 1px solid #0c023c;
   color: #ffffff;
 }
 .btn-inverse:hover {
@@ -5867,7 +5868,7 @@ tbody tr td:last-child {
   background-color: #62d1f3;
 }
 .label-danger {
-  background-color: #fc6180;
+  background-color: #0c023c;
 }
 .label-warning {
   background-color: #ffb64d;

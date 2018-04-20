@@ -20,7 +20,7 @@ class CreateRpvsTable extends Migration
             $table->string('rpv_process');
             $table->string("origin_process");
             $table->string("stick");
-            $table->integer('process_type')->unsigned();
+            $table->string('process_type');
             $table->string("contact");
             $table->string("deposit_date");
             $table->string('moviment');

@@ -10,7 +10,7 @@
                     <div class="col-lg-6">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Cadastro de RPV</h4>
+                                <h4 class="m-b-0 text-white">Edição de RPV</h4>
                             </div>
                             <div class="card-body">
                             @if ($errors->any())
@@ -22,7 +22,7 @@
         </ul>
     </div>
 @endif
-                                <form action="{{url('rpv/create')}}" method='post' enctype='multipart/form-data'>
+                               {{Form::model($rpv, ['url'=>"rpv/$rpv->id/edit"])}}
 
                                 {{csrf_field()}}
                                     <div class="form-body">
@@ -31,15 +31,16 @@
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Nome</label>
-                                                    <input type="text" name="name" id="firstName" class="form-control">
+                                                    {{Form::label('name','Nome')}}
+                                                    {{Form::text('name',null,['class'=>"form-control"])}}
+
                                                     <small class="form-control-feedback"> </small> </div>
-                                            </div>
+                                                </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">CPF</label>
-                                                    <input name="cpf" type="text" id="lastName" class="form-control form-control-danger">
+                                                    {{Form::label('cpf','CPF',['class'=>'control-label'])}}
+                                                    {{Form::text('cpf',null,['class'=>"form-control"])}}
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
                                             <!--/span-->
@@ -48,15 +49,19 @@
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Processo RPV</label>
-                                                    <input name="rpv_process" type="text" id="firstName" class="form-control">
+
+                                                    {{Form::label('rpv_process','Processo RPV',['class'=>'control-label'])}}
+                                                    {{Form::text('rpv_process',null,['class'=>"form-control"])}}
+
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Processo originário</label>
-                                                    <input name="origin_process" type="text" id="lastName" class="form-control form-control-danger">
+
+                                                    {{Form::label('origin_process','Processo originário',['class'=>'control-label'])}}
+                                                    {{Form::text('origin_process',null,['class'=>"form-control"])}}
+
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
                                             <!--/span-->
@@ -65,15 +70,17 @@
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Vara</label>
-                                                    <input name="stick" type="text" id="firstName" class="form-control">
+
+                                                    {{Form::label('stick','Vara',['class'=>'control-label'])}}
+                                                    {{Form::text('stick',null,['class'=>"form-control"])}}
+
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Contato</label>
-                                                    <input name="contact" type="text" id="lastName" class="form-control form-control-danger">
+                                                    {{Form::label('contact','Contato',['class'=>'control-label'])}}
+                                                    {{Form::text('contact',null,['class'=>"form-control"])}}
                                                     <small class="form-control-feedback"> </small> </div>
                                             </div>
                                             <!--/span-->
@@ -85,8 +92,11 @@
                                                     <label class="control-label">Tipo de processo</label>
                                                     <select name="process_type" class="form-control custom-select">
                                                     @forelse($processes as $process)
-                                                        <option value="{{$process->id}}">{{$process->type}}</option>
-
+                                                        @if(strcmp($process->type,$rpv->process_type) == 0)
+                                                        <option value="{{$process->type}}" selected>{{$process->type}}</option>
+                                                        @else
+                                                        <option value="{{$process->type}}">{{$process->type}}</option>
+                                                        @endif
 
                                                         @empty
 
@@ -97,8 +107,8 @@
                                             <!--/span-->
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Data de depósito</label>
-                                                    <input  name="deposit_date" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                                    {{Form::label('deposit_date','Data de depósito',['class'=>'control-label'])}}
+                                                    {{Form::date('deposit_date',null,['class'=>"form-control"])}}
                                                 </div>
                                             </div>
                                             <!--/span-->
@@ -111,7 +121,11 @@
                                                     <select  name="moviment" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
 
                                                      @forelse($moviments as $moviment)
+                                                        @if(strcmp($moviment->name,$rpv->moviment) == 0)
+                                                        <option value="{{$moviment->name}}" selected>{{$moviment->name}}</option>
+                                                        @else
                                                         <option value="{{$moviment->name}}">{{$moviment->name}}</option>
+                                                        @endif
                                                         @empty
 
                                                         @endforelse
@@ -124,7 +138,12 @@
                                                     <label class="control-label">Banco</label>
                                                     <select name="bank" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
                                                        @forelse($banks as $bank)
+                                                       @if(strcmp($bank->name,$rpv->bank)==0)
+                                                        <option value="{{$bank->name}}" selected>{{$bank->name}}</option>
+                                                        @else
+
                                                         <option value="{{$bank->name}}">{{$bank->name}}</option>
+                                                        @endif
                                                         @empty
 
                                                         @endforelse
@@ -132,11 +151,10 @@
                                                 </div>
                                                 </div>
                                             </div>
-
                                             <!--/span-->
                                         <div class="form-actions">
                                         <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Salvar</button>
-                                        <button type="button" class="btn btn-inverse">Cancelar</button>
+                                        <a href="{{url('rpv/list')}}" type="button" class="btn btn-inverse">Cancelar</a>
                                     </div>
                                 </form>
                             </div>
