@@ -11,8 +11,4 @@ class ForgotPasswordController extends Controller
     {
         return view('auth/passwords/email');
     }
-    public function sendResetLinkEmail()
-    {
-        return view('user/forgot-pass');
-    }
 }

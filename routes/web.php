@@ -47,15 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
   $this->get('email/create','RpvController@createEmail');
   $this->post('email/create','RpvController@sendEmail');
 
+  $this->get('user/password/change','UserController@showFormChangePass')->name('password.change');
+  $this->post('user/password/change','UserController@changePass')->name('password.change');
+
 
 });
 
-Route::group(['namespace' => 'Auth'],function(){
-  // Authentication Routes...
-
-  // Password Reset Routes...
-  Route::get('user/password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-  Route::post('user/password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-  Route::get('user/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.token');
-  Route::post('user/password/reset', 'ResetPasswordController@reset');
-});
+Auth::routes();

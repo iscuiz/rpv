@@ -145,6 +145,6 @@ class RpvController extends Controller
         }
          $this->dispatch(new SendRpvJob($requestfileName,$to,$subject,$msg));
 
-        return "ok";
+        return redirect()->back()->with("info","Email enviado com sucesso");
     }
 }

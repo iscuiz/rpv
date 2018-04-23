@@ -40,7 +40,25 @@
                     <div class="col-lg-4">
                         <div class="login-content card">
                             <div class="login-form">
+
+                            @if(\Session::has('status'))
+                            <div class="alert alert-sucess">
+                                    <ul>
+                                            <li>{{ \Session::get('status') }}</li>
+
+                                    </ul>
+                                </div>
+                            @endif
                                 <h4>Esqueci minha senha</h4>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                                 {{Form::open(['route'=>'password.email'])}}
 
                                     <div class="form-group">

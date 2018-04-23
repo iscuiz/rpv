@@ -67,7 +67,7 @@
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{\Auth::user()->name}}</a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                <li><a href="{{'user/change-pass'}}"><i class="ti-lock"></i>Alterar senha</a></li>
+                                <li><a href="{{route('password.change')}}"><i class="ti-lock"></i>Alterar senha</a></li>
                                 <li><a href="{{url('auth/logout')}}"><i class="fa fa-power-off"></i> Sair</a></li>
                                 </ul>
                             </div>

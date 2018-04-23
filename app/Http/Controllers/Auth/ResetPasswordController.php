@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,15 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    protected function validationErrorMessages()
+    {
+        return [
+            'email.required' => "Por favor insira o email",
+            'email.email' => "Por favor insira um  email válido",
+            'password.required' => "Por favor insira a senha",
+            'password.confirmed' => "As senhas precisam ser identicas"
+        ];
     }
 }

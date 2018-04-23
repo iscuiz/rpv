@@ -42,7 +42,8 @@ class ResetPassword extends Notification
     {
         return (new MailMessage)
                     ->line('Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha para sua conta.')
-                    ->action('Resetar Senha', route('password.reset.token',['token' => $this->token])   );
+                    ->action('Resetar Senha', route('password.reset',['token' => $this->token]))
+                    ->line('Se você não solicitou uma redefinição de senha, nenhuma ação adicional é necessária');
 
     }
 

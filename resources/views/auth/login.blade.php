@@ -40,9 +40,18 @@
                     <div class="col-lg-4">
                         <div class="login-content card">
                             <div class="login-form">
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <h4>Login</h4>
                                 {{Form::open(['url'=>'auth/login'])}}
-                                <form>
+
                                     <div class="form-group">
                                         {{Form::label("email","Email")}}
                                         {{Form::email('email',null,['class'=>'form-control'])}}
@@ -59,7 +68,6 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Entrar</button>
 
-                                </form>
 
                                 {{Form::close()}}
                             </div>
