@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{$bank->name}}</td>
                             <td width="30%" style="text-align: center">
-                                <a href='{{url("process/$bank->id/edit")}}' class="btn btn-warning">Editar</a>
+                                <a href='{{url("bank/$bank->id/edit")}}' class="btn btn-warning">Editar</a>
                             <a href='#' class="btn btn-danger" onclick="confirmDelete({{$bank->id}})">Excluir</a>
                             </td>
 

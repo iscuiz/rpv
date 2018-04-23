@@ -26,14 +26,24 @@ class MovimentController extends Controller
     public function edit(Request $request)
     {
         $moviment = Moviment::findOrFail($request->id);
+
         if($moviment)
         {
             return view('moviment/edit',compact('moviment'));
         }
+        return redirect()->back()->with('info','Movimentação não encontrada');
     }
-    public function update()
+    public function update(Request $request)
     {
+        $moviment = Moviment::findOrFail($request->id);
+        if($moviment)
+        {
+            $moviment->name = $request->name;
+            $moviment->save();
+            return redirect()->back()->with('info','Movimentação atualizada com sucesso');
+        }
 
+        return redirect()->back()->with('info','Movimentação não encontrada');
     }
 
     public function delete(Request $request)

@@ -1,7 +1,7 @@
 @extends("layouts/main")
     @section("content")
 <div class="row">
-
+ @include('layouts.alert')
     <div class="col-12">
                         <div class="card">
                             <div class="container-fluid">

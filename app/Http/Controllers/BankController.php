@@ -22,12 +22,29 @@ class BankController extends Controller
         $banks = Bank::all();
         return view('bank/list',compact('banks'));
     }
-    public function edit()
+    public function edit(Request $request)
     {
+        $bank = Bank::findOrFail($request->id);
+        if($bank)
+        {
+            return view("bank/edit",compact('bank'));
+        }
 
+        return redirect()->back()->with('erro','Banco não encontrado');
     }
-    public function update()
+    public function update(Request $request)
     {
+        $bank = Bank::findOrFail($request->id);
+        if($bank)
+        {
+            $bank->name = $request->name;
+            $bank->save();
+
+            return redirect()->back()->with('info','Banco Atualizado com sucesso');
+        }
+
+
+        return redirect()->back()->with('erro','Banco não encontrado');
 
     }
 
@@ -39,6 +56,6 @@ class BankController extends Controller
             $bank->delete();
             return redirect()->back()->with('info','Banco excluido com sucesso');
         }
-        return redirect()->back()->with('info','Banco não encontrado');
+        return redirect()->back()->with('erro','Banco não encontrado');
     }
 }

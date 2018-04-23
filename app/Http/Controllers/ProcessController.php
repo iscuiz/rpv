@@ -27,16 +27,26 @@ class ProcessController extends Controller
     public function edit(Request $request)
     {
         $process = Process::findOrFail($request->id);
+
         if($process)
         {
             return view('process/edit',compact('process'));
         }
-        return redirect()->back();
+        return redirect()->back()->with('erro','Tipo de Processo não encontrado');
     }
 
-    public function update()
+    public function update(Request $request)
     {
 
+        $process = Process::findOrFail($request->id);
+    
+        if($process)
+        {
+            $process->type = $request->type;
+            $process->save();
+            return redirect()->back()->with('info','Tipo de Processo Atualizado');
+        }
+        return redirect()->back()->with('erro','Tipo de Processo não encontrado');
     }
 
 
@@ -48,6 +58,6 @@ class ProcessController extends Controller
             $process->delete();
             return redirect()->back()->with('info','Processo  excluido com sucesso');
         }
-        return redirect()->back()->with('info','Processo  não encontrado');
+        return redirect()->back()->with('erro','Processo  não encontrado');
     }
 }
